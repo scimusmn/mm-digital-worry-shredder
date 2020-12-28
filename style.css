@@ -14,12 +14,8 @@ body {
     height: 100vh;
 }
 
-body section {
+body .container {
     margin: 3em 4em;
-}
-
-div {
-    padding: 2em 0;
 }
 
 header {
@@ -33,10 +29,12 @@ header {
 
 h1 {
     font-size: 2.5rem;
+    margin-bottom: 1em;
 }
 
 h2 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
+    margin-bottom: 1em;
 }
 
 p {
@@ -45,29 +43,46 @@ p {
 }
 
 textarea {
-    width: 15rem;
-    height: 4rem;
     padding: 1em;
+    width: 80%;
+    font-size: 1.25rem;
 }
 
 button {
     display: block;
-    margin-top: .5rem;
+    margin: 1em 0;
+    padding: .5em 1em;
+}
+
+.step2 {
+    display: none;
 }
 
 .worry-card {
     border: 1px solid black;
     padding: 1.5em 1em;
     width: 20rem;
-    height: 12rem;
+    min-height: 12rem;
+}
+
+.worry-card-user-text {
+    white-space: pre-wrap;
+    width: 95%;
+    margin: 0 auto;
 }
 
 .badge {
     color: #FFF;
     background-color: #ffb200;
     font-size: 1rem;
-    display: inline;
     padding: .2em .4em .3em;
-    border-radius: 1em;
+    margin-bottom: .5em;
     text-transform: uppercase;
+}
+
+.go-back {
+    color: #2c5e7d;
+    cursor: pointer;
+    margin-top: .45em;
+    display: inline-block;
 }
