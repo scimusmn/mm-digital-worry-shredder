@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+@import url("https://fonts.googleapis.com/css?family=Lato:400");
+@import url("https://fonts.googleapis.com/css?family=Caveat:400");
 /* CSS reset */
 
 *, *::after, *::before {
@@ -15,7 +16,7 @@ body {
 }
 
 body .container {
-    margin: 3em 4em;
+    margin: 5%;
 }
 
 header {
@@ -54,21 +55,24 @@ button {
     padding: .5em 1em;
 }
 
-.step2 {
+.step2, .step3 {
     display: none;
 }
 
 .worry-card {
-    border: 1px solid black;
-    padding: 1.5em 1em;
-    width: 20rem;
-    min-height: 12rem;
+    width: 60vw;
+    max-width: 30rem;
+    margin: 0 auto;
+    min-height: 9rem;
+    box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
 
 .worry-card-user-text {
     white-space: pre-wrap;
+    font-size: 1.75rem;
     width: 95%;
     margin: 0 auto;
+    font-family: Caveat;
 }
 
 .badge {
@@ -80,9 +84,50 @@ button {
     text-transform: uppercase;
 }
 
-.go-back {
-    color: #2c5e7d;
-    cursor: pointer;
-    margin-top: .45em;
+.link-bar {
+    margin-top: .75em;
+}
+
+.link-bar a {
     display: inline-block;
+    color: #2c5e7d;
+}
+
+.shredder {
+    height: 4em;
+    width: 90vw;
+    max-width: 45rem;
+    background-color: darkslategray;
+    border-radius: .5rem;
+    margin: 3em auto;
+    box-shadow: 0.3em 0.3em 3em rgba(0, 0, 0, 0.2);
+}
+
+.power {
+    height: 1em;
+    width: 1em;
+    border-radius: 1em;
+    position: relative;
+    background-color: goldenrod;
+    top: 35%;
+    left: 3%;
+    display: inline-block;
+}
+
+.power.off {
+    background-color: red;
+}
+
+.power.on {
+    background-color: green;
+}
+
+.slot {
+    width: 60vw;
+    max-width: 32rem;
+    margin: 0 auto;
+    height: .65em;
+    background-color: lightslategrey;
+    position: relative;
+    top: 8%;
 }

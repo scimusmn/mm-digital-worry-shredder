@@ -14,7 +14,6 @@
     <div class="container">
         <section class="step1">
             <h1>Worry Shredder Prototypes</h1>
-                <h2>Text input transition to shreddable worry card</h2>
                 <form>
                     <textarea placeholder="What are you worried about?"></textarea>
                     <button type="button">Next</button>
@@ -26,8 +25,19 @@
                 <h3 class="badge">Worry</h3>
                 <div class="worry-card-user-text"></div>
             </div>
-            <a href="/" class="go-back">Go back</a>
+
+            <div class="shredder">
+                <div class="power off"></div>
+                <div class="slot"></div>
+            </div>
+
+            <div class="link-bar">
+                <a href="/" class="go-back">Start over</a> | 
+                <a href="#" class="turn-on">Turn on the shredder</a> | 
+                <a href="#" class="shred">Auto-feed the shredder</a>
+            </div>
         </section>
+
 
     </div>
     <script type="text/javascript" src="script.js"></script>
