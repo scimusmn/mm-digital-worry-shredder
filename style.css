@@ -62,7 +62,7 @@ button {
     display: none;
 }
 
-.worry-card {
+.worry-card, #worry-card {
     width: 60vw;
     max-width: 30rem;
     margin: 0 auto;
