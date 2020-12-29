@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:400");
+@import url("https://fonts.googleapis.com/css?family=Lato:400,900");
 @import url("https://fonts.googleapis.com/css?family=Caveat:400");
 /* CSS reset */
 
@@ -17,6 +17,9 @@ body {
 
 body .container {
     margin: 5%;
+}
+a.active {
+    font-weight: 900;
 }
 
 header {
@@ -64,7 +67,8 @@ button {
     max-width: 30rem;
     margin: 0 auto;
     min-height: 9rem;
-    box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    padding-bottom: 1em;
+    border: 1px solid #a5a5a5;
 }
 
 .worry-card-user-text {
@@ -85,12 +89,18 @@ button {
 }
 
 .link-bar {
-    margin-top: .75em;
+    margin-bottom: 3em;
 }
 
 .link-bar a {
     display: inline-block;
     color: #2c5e7d;
+}
+
+.wrap {
+    overflow: hidden;
+    margin-bottom: 2em;
+    padding-top: 2em;
 }
 
 .shredder {
@@ -99,8 +109,10 @@ button {
     max-width: 45rem;
     background-color: darkslategray;
     border-radius: .5rem;
-    margin: 3em auto;
+    margin: 3em auto 0;
     box-shadow: 0.3em 0.3em 3em rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    position: relative;
 }
 
 .power {
@@ -122,7 +134,7 @@ button {
     background-color: green;
 }
 
-.slot {
+/*.slot {
     width: 60vw;
     max-width: 32rem;
     margin: 0 auto;
@@ -130,4 +142,4 @@ button {
     background-color: lightslategrey;
     position: relative;
     top: 8%;
-}
+}*/
