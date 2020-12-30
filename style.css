@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,900");
-@import url("https://fonts.googleapis.com/css?family=Caveat:400");
 /* CSS reset */
 
 *, *::after, *::before {
@@ -88,7 +87,6 @@ button {
     white-space: pre-wrap;
     font-size: 1.75rem;
     margin: 0 auto;
-    font-family: Caveat;
     padding: .5em .5em 1em;
 }
 
