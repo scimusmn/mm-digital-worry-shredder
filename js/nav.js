@@ -1,22 +1,18 @@
-// Add a footer nav bar for all prototype pages.
-let links = '<nav style="margin-top: 5em;">';
-links +=
-  '<a href="index.html">Step 1</a> | <a href="shred.html">Step 2</a>';
-links += '</nav>';
+// Page panel nav.
+let form = document.querySelector('form');
+let step2 = document.querySelector('.step2');
 
-document
-  .querySelector('.container')
-  .insertAdjacentHTML('beforeend', links);
+// Screen 1 -> Screen 2
+document.querySelector('button').addEventListener('click', () => {
+  let worry = document.querySelector('textarea').value;
+  let worryCard = document.querySelector('#worry-card');
 
-// Add a class to the active page link.
-const addLinkClass = () => {
-  var currentPage = location.href;
-  var allA = document.getElementsByTagName('A');
-  for (var i = 0, len = allA.length; i < len; i++) {
-    if (allA[i].href == currentPage) {
-      allA[i].className = 'active';
-    }
-  }
-};
+  worryCard.insertAdjacentHTML(
+    'beforeend',
+    '<div class="worry-card-user-text">' + worry + '</div>',
+  );
 
-addLinkClass();
+  // @todo require a value before moving on
+  form.style.display = 'none';
+  step2.style.display = 'inline-block';
+});

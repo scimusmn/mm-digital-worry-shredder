@@ -40,6 +40,11 @@ h1 {
     margin-bottom: 1em;
 }
 
+h1 a {
+    color: white;
+    text-decoration: none;
+}
+
 h2 {
     font-size: 1.5rem;
     margin-bottom: 1em;
@@ -74,11 +79,11 @@ button {
 
 .worry-card, #worry-card {
     margin: 0 auto 3em;
-    min-height: 9rem;
     border: 1px solid #a5a5a5;
 }
 
 .worry-card-user-text {
+    min-height: 6rem;
     background-color: #ffffff;
     white-space: pre-wrap;
     font-size: 1.75rem;

@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="node_modules/animate.css/animate.min.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
 
     <title>Worry Shredder prototypes | sarahg.dev</title>
@@ -14,36 +13,40 @@
     <header>sarahg.dev</header>
     <div class="container">
         <section>
-            <h1>Worry Shredder prototypes</h1>
-                <form>
-                    <textarea placeholder="What are you worried about?"></textarea>
-                    <button type="button">Next</button>
-                </form>
+            <h1><a href="javascript:window.location.href=window.location.href">Worry Shredder prototype</a></h1>
+            <form>
+                <textarea placeholder="What are you worried about?"></textarea>
+                <button type="button">Next</button>
+            </form>
         </section>
 
         <section class="step2">
+            <p>Drag your worry into the shredder.</p>
             <div class="wrap">
-                <div class="worry-card">
+                <div id="worry-card">
                     <h3 class="badge">Worry</h3>
-                    <div class="worry-card-user-text"></div>
                 </div>
 
                 <div class="shredder">
                     <div class="power off"></div>
-                    <div class="slot"></div>
                 </div>
             </div>
-            <div class="link-bar">
-                <a href="/" class="go-back">Start over</a> | 
-                <a href="#" class="turn-on">Turn <span>on</span> the shredder</a> |
-                <a href="#" class="shred">Feed the shredder</a>
-            </div>
+
+            <div class="scrap-box"></div>
+            <div class="closing-message">The end 🥂</div>
         </section>
 
 
     </div>
-    <script type="text/javascript" src="js/demo1.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/Draggable.min.js"></script>
     <script type="text/javascript" src="js/nav.js"></script>
+    <script type="text/javascript" src="js/demo2.js"></script>
+    <script type="text/javascript">
+        init();
+    </script>
+
 </body>
 
 </html>

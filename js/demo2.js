@@ -61,7 +61,7 @@ const startShred = () => {
       yoyo: true,
       ease: Quad.easeInOut,
     },
-    '<',
+    '<', // Start when the above animation starts.
   );
 
   // Pull the card downwards.
@@ -71,7 +71,7 @@ const startShred = () => {
       y: worryCard.offsetHeight + shredder.clientHeight,
       duration: 15,
     },
-    '<0.25',
+    '<0.25', // Start .25s after the above animation starts.
   );
 
   tl.set(
@@ -79,18 +79,19 @@ const startShred = () => {
     {
       delay: 0.5,
       onRepeat: makeShreds,
-      repeat: worryCard.offsetHeight / 25,
+      repeat: worryCard.offsetHeight / 20,
       repeatDelay: 1,
     },
-    '<',
+    '<', // Start when the above animation starts.
   );
 
-  // End the scene once the card is shredded.
+  // End the scene 1s after the card finishes moving.
   tl.add(showClosing, '+=1');
 };
 
 /**
  * Create a bunch of divs to represent paper shreds.
+ * @todo this could be more performant
  */
 const makeShreds = () => {
   var total = 30;
@@ -114,22 +115,22 @@ const makeShreds = () => {
  * Falling shredded paper effect.
  */
 const snowfall = (elm) => {
-  // Send the shreds downward
+  // Send the shreds downward.
   gsap.to(elm, {
     y: 300,
     ease: Linear.easeNone,
     duration: R(6, 15),
   });
-  // Float the shreds around the X-axis
+  // Float the shreds around the X-axis.
   gsap.to(elm, {
-    x: '-=60',
+    x: '-=20',
     rotationZ: R(0, 180),
     repeat: -1,
     yoyo: true,
     ease: Sine.easeInOut,
     duration: R(4, 8),
   });
-  // Rotate the shreds around as they fall
+  // Rotate the shreds around as they fall.
   gsap.to(elm, {
     rotationX: R(0, 360),
     rotationY: R(0, 360),
@@ -150,8 +151,9 @@ function R(min, max) {
  */
 const showClosing = () => {
   let shreds = document.querySelectorAll('.snow');
-
   let tl = gsap.timeline();
+
+  // Fade out and destroy the shreds.
   tl.to(shreds, {
     opacity: 0,
     duration: 3,
@@ -165,7 +167,7 @@ const showClosing = () => {
     {
       opacity: '100%',
     },
-    '<',
+    '<', // Start when the above animation starts.
   );
 
   console.log('the end');
