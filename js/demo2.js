@@ -59,7 +59,7 @@ const startShred = () => {
   // Turn on the power light.
   tl.to(light, { backgroundColor: 'green' });
 
-  // Shredder rumbles
+  // Shake the shredder.
   tl.fromTo(
     shredder,
     0.1,
@@ -72,14 +72,14 @@ const startShred = () => {
     },
   );
 
-  // Worry card slides downward.
+  // Pull the card downwards.
   tl.to(
     worryCard,
     {
       y: worryCard.offsetHeight + 100,
       duration: 30,
     },
-    //'-=10',
+    '<',
   );
 
   tl.add(snowfall());
@@ -95,41 +95,50 @@ const snowfall = () => {
   var total = 100;
 
   for (i = 0; i < total; i++) {
-    var snowflake = document.createElement('div');
-    gsap.set(snowflake, {
+    // Create a div for each shred.
+    var shred = document.createElement('div');
+    gsap.set(shred, {
       attr: { class: 'snow' },
       x: R(
-        shredder.getBoundingClientRect().left,
-        shredder.getBoundingClientRect().right - 50,
+        shredder.getBoundingClientRect().left + 100,
+        shredder.getBoundingClientRect().right - 100,
       ),
-      y: 0,
+      y: -10,
       z: R(-20, 20),
     });
-    scrapBox.appendChild(snowflake);
-    fall(snowflake);
+    scrapBox.appendChild(shred);
+
+    // Let it rain.
+    fall(shred);
   }
 
   function fall(elm) {
-    gsap.to(elm, R(6, 15), {
-      y: worryCard.offsetHeight + 200,
+    // Send the shreds downward
+    gsap.to(elm, {
+      y: 400,
       ease: Linear.easeNone,
       repeat: -1,
-      delay: -15,
+      delay: 2,
+      duration: R(6, 15),
     });
-    gsap.to(elm, R(4, 8), {
+    // Float the shreds around the X-axis
+    gsap.to(elm, {
       x: '-=100',
       rotationZ: R(0, 180),
       repeat: -1,
       yoyo: true,
       ease: Sine.easeInOut,
+      duration: R(4, 8),
     });
-    gsap.to(elm, R(2, 8), {
+    // Rotate the shreds around as they fall
+    gsap.to(elm, {
       rotationX: R(0, 360),
       rotationY: R(0, 360),
       repeat: -1,
       yoyo: true,
       ease: Sine.easeInOut,
       delay: -5,
+      duration: R(2, 8),
     });
   }
 
