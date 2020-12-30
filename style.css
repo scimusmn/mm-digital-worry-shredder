@@ -48,6 +48,7 @@ h2 {
 p {
     font-size: 1.25rem;
     margin: 1em 0;
+    color: #f7f7f7;
 }
 
 textarea {
@@ -72,19 +73,18 @@ button {
 }
 
 .worry-card, #worry-card {
-    margin: 0 auto;
+    margin: 0 auto 3em;
     min-height: 9rem;
-    padding-bottom: 1em;
     border: 1px solid #a5a5a5;
-    background-color: #ffffff;
 }
 
 .worry-card-user-text {
+    background-color: #ffffff;
     white-space: pre-wrap;
     font-size: 1.75rem;
-    width: 95%;
     margin: 0 auto;
     font-family: Caveat;
+    padding: .5em .5em 1em;
 }
 
 .badge {
@@ -92,7 +92,6 @@ button {
     background-color: #ffb200;
     font-size: 1rem;
     padding: .2em .4em .3em;
-    margin-bottom: .5em;
     text-transform: uppercase;
 }
 
@@ -107,8 +106,7 @@ button {
 
 .wrap {
     overflow: hidden;
-    padding-top: 2em;
-    max-height: 30em;
+    padding-top: 3em;
 }
 
 .shredder {
@@ -117,7 +115,7 @@ button {
     max-width: 45rem;
     background-color: darkslateblue;
     border-radius: .5rem;
-    margin: 3em auto 0;
+    margin: 0 auto;
     z-index: 999;
     position: relative;
 }

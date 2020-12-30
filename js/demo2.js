@@ -4,17 +4,6 @@ let shredder = document.querySelector('.shredder');
 let scrapBox = document.querySelector('.scrap-box');
 let light = document.querySelector('.power');
 
-/*
- * Build static worry card for demo.
- * In the functional version, text will come over from Step 1.
- */
-let worry =
-  'Duis et dui bibendum, porttitor dui eu, gravida nisl. Donec congue pretium nisl, et posuere ex venenatis non. Mauris at quam ac nunc sagittis pharetra non eget justo.';
-worryCard.insertAdjacentHTML(
-  'beforeend',
-  '<div class="worry-card-user-text">' + worry + '</div>',
-);
-
 /**
  * Initialize the animation.
  */
@@ -72,34 +61,46 @@ const startShred = () => {
       yoyo: true,
       ease: Quad.easeInOut,
     },
+    '<',
   );
 
   // Pull the card downwards.
   tl.to(
     worryCard,
     {
-      y: worryCard.offsetHeight + 100,
-      duration: 10,
-      onStart: makeShreds,
+      y: worryCard.offsetHeight + shredder.clientHeight,
+      duration: 15,
+    },
+    '<0.25',
+  );
+
+  tl.set(
+    makeShreds,
+    {
+      delay: 0.5,
+      onRepeat: makeShreds,
+      repeat: worryCard.offsetHeight / 25,
+      repeatDelay: 1,
     },
     '<',
   );
 
-  tl.add(showClosing, '+=2');
+  // End the scene once the card is shredded.
+  tl.add(showClosing, '+=1');
 };
 
 /**
  * Create a bunch of divs to represent paper shreds.
  */
 const makeShreds = () => {
-  var total = 100;
+  var total = 30;
   for (i = 0; i < total; i++) {
     var shred = document.createElement('div');
     gsap.set(shred, {
       attr: { class: 'snow' },
       x: R(
         shredder.getBoundingClientRect().left + 100,
-        shredder.getBoundingClientRect().right - 100,
+        shredder.getBoundingClientRect().right - 150,
       ),
       y: -10,
       z: R(-20, 20),
@@ -117,12 +118,11 @@ const snowfall = (elm) => {
   gsap.to(elm, {
     y: 300,
     ease: Linear.easeNone,
-    delay: 2,
     duration: R(6, 15),
   });
   // Float the shreds around the X-axis
   gsap.to(elm, {
-    x: '-=100',
+    x: '-=60',
     rotationZ: R(0, 180),
     repeat: -1,
     yoyo: true,
@@ -149,14 +149,32 @@ function R(min, max) {
  * Bring in closing message.
  */
 const showClosing = () => {
-  // @todo fully stop the animation/remove items from DOM
   let shreds = document.querySelectorAll('.snow');
 
   let tl = gsap.timeline();
-  tl.to(shreds, { opacity: 0, duration: 3 });
-  tl.to(document.querySelectorAll('.closing-message'), {
-    opacity: '100%',
+  tl.to(shreds, {
+    opacity: 0,
+    duration: 3,
+    onComplete: cleanup,
+    onCompleteParams: [shreds],
   });
+  tl.to(light, { backgroundColor: 'yellow' });
+
+  tl.to(
+    document.querySelectorAll('.closing-message'),
+    {
+      opacity: '100%',
+    },
+    '<',
+  );
 
   console.log('the end');
+};
+
+/**
+ * Delete animated elements after they disappear.
+ */
+const cleanup = (el) => {
+  console.log(el);
+  el.forEach((e) => e.remove());
 };
