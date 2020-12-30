@@ -100,8 +100,8 @@ const makeShreds = () => {
     gsap.set(shred, {
       attr: { class: 'snow' },
       x: R(
-        shredder.getBoundingClientRect().left + 100,
-        shredder.getBoundingClientRect().right - 150,
+        shredder.getBoundingClientRect().left + 80,
+        shredder.getBoundingClientRect().right - 180,
       ),
       y: -10,
       z: R(-20, 20),
