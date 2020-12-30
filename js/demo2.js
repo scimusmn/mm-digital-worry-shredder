@@ -1,7 +1,7 @@
 // Assign variables to DOM elements we'll use often.
 let worryCard = document.querySelector('#worry-card');
 let shredder = document.querySelector('.shredder');
-let scrapBox = document.querySelector('.scraps');
+let scrapBox = document.querySelector('.scrap-box');
 let light = document.querySelector('.power');
 
 /*
@@ -19,13 +19,15 @@ worryCard.insertAdjacentHTML(
  * Initialize the animation.
  */
 const init = () => {
-  let tl = gsap.timeline();
-  tl.from(shredder, { duration: 1, opacity: 0 });
-  tl.add(enableDrag());
+  gsap
+    .timeline()
+    .from(shredder, { duration: 1, opacity: 0 })
+    .add(enableDrag());
 };
 
 /*
  * Make the card draggable.
+ * Turn on the shredder when the card hits it.
  */
 const enableDrag = () => {
   let lastY = 0;
@@ -62,10 +64,10 @@ const startShred = () => {
   // Shake the shredder.
   tl.fromTo(
     shredder,
-    0.1,
     { x: -2 },
     {
       x: 2,
+      duration: 0.1,
       repeat: 40,
       yoyo: true,
       ease: Quad.easeInOut,
@@ -77,25 +79,21 @@ const startShred = () => {
     worryCard,
     {
       y: worryCard.offsetHeight + 100,
-      duration: 30,
+      duration: 10,
+      onStart: makeShreds,
     },
     '<',
   );
 
-  tl.add(snowfall());
-  tl.add(stopSnow());
+  tl.add(showClosing, '+=2');
 };
 
 /**
- * Falling shredded paper effect.
+ * Create a bunch of divs to represent paper shreds.
  */
-const snowfall = () => {
-  gsap.set(scrapBox, { perspective: 500 });
-
+const makeShreds = () => {
   var total = 100;
-
   for (i = 0; i < total; i++) {
-    // Create a div for each shred.
     var shred = document.createElement('div');
     gsap.set(shred, {
       attr: { class: 'snow' },
@@ -107,53 +105,58 @@ const snowfall = () => {
       z: R(-20, 20),
     });
     scrapBox.appendChild(shred);
-
-    // Let it rain.
-    fall(shred);
-  }
-
-  function fall(elm) {
-    // Send the shreds downward
-    gsap.to(elm, {
-      y: 400,
-      ease: Linear.easeNone,
-      repeat: -1,
-      delay: 2,
-      duration: R(6, 15),
-    });
-    // Float the shreds around the X-axis
-    gsap.to(elm, {
-      x: '-=100',
-      rotationZ: R(0, 180),
-      repeat: -1,
-      yoyo: true,
-      ease: Sine.easeInOut,
-      duration: R(4, 8),
-    });
-    // Rotate the shreds around as they fall
-    gsap.to(elm, {
-      rotationX: R(0, 360),
-      rotationY: R(0, 360),
-      repeat: -1,
-      yoyo: true,
-      ease: Sine.easeInOut,
-      delay: -5,
-      duration: R(2, 8),
-    });
-  }
-
-  function R(min, max) {
-    return min + Math.random() * (max - min);
+    snowfall(shred);
   }
 };
 
-/*
- * Destroy the shreds.
- * Shredded pieces disintegrate.
+/**
+ * Falling shredded paper effect.
  */
-const stopSnow = () => {};
+const snowfall = (elm) => {
+  // Send the shreds downward
+  gsap.to(elm, {
+    y: 300,
+    ease: Linear.easeNone,
+    delay: 2,
+    duration: R(6, 15),
+  });
+  // Float the shreds around the X-axis
+  gsap.to(elm, {
+    x: '-=100',
+    rotationZ: R(0, 180),
+    repeat: -1,
+    yoyo: true,
+    ease: Sine.easeInOut,
+    duration: R(4, 8),
+  });
+  // Rotate the shreds around as they fall
+  gsap.to(elm, {
+    rotationX: R(0, 360),
+    rotationY: R(0, 360),
+    repeat: -1,
+    yoyo: true,
+    ease: Sine.easeInOut,
+    delay: -5,
+    duration: R(2, 8),
+  });
+};
+
+function R(min, max) {
+  return min + Math.random() * (max - min);
+}
 
 /*
  * Bring in closing message.
  */
-const showClosing = () => {};
+const showClosing = () => {
+  // @todo fully stop the animation/remove items from DOM
+  let shreds = document.querySelectorAll('.snow');
+
+  let tl = gsap.timeline();
+  tl.to(shreds, { opacity: 0, duration: 3 });
+  tl.to(document.querySelectorAll('.closing-message'), {
+    opacity: '100%',
+  });
+
+  console.log('the end');
+};

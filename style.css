@@ -158,3 +158,17 @@ button {
     background-color: white;
     background-size: 100% 100%;
 }
+
+.scrap-box {
+    perspective: 500;
+}
+
+.closing-message {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-decoration: uppercase;
+    color: ghostwhite;
+    text-align: center;
+    margin: 3em 0;
+    opacity: 0;
+}
