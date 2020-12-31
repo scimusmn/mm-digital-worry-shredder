@@ -13,7 +13,6 @@ body {
     font-family: Lato, sans-serif;
     height: 100vh;
     background-color: #0aa98c;
-    overflow: hidden;
 }
 
 body .container {
