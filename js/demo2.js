@@ -4,6 +4,8 @@ let shredder = document.querySelector('.shredder');
 let scrapBox = document.querySelector('.scrap-box');
 let light = document.querySelector('.power');
 
+let shredderLeftPos = shredder.getBoundingClientRect().left;
+
 /**
  * Initialize the animation.
  */
@@ -109,8 +111,8 @@ const makeShreds = () => {
     gsap.set(shred, {
       attr: { class: 'snow' },
       x: R(
-        shredder.getBoundingClientRect().left + 80,
-        shredder.getBoundingClientRect().right - 180,
+        worryCard.getBoundingClientRect().left - shredderLeftPos,
+        worryCard.getBoundingClientRect().right - shredderLeftPos,
       ),
       y: -10,
       z: R(-20, 20),
@@ -132,7 +134,7 @@ const snowfall = (elm) => {
   });
   // Float the shreds around the X-axis.
   gsap.to(elm, {
-    x: '-=20',
+    x: '-=5',
     rotationZ: R(0, 180),
     repeat: -1,
     yoyo: true,
@@ -170,13 +172,11 @@ const destroyShreds = () => {
     onCompleteParams: [shreds],
   });
   tl.to(light, { backgroundColor: 'yellow' });
-
 };
 
 /**
  * Delete animated elements after they disappear.
  */
 const cleanup = (el) => {
-  console.log(el);
   el.forEach((e) => e.remove());
 };

@@ -85,7 +85,7 @@ button {
     display: none;
 }
 
-.worry-card, #worry-card, .scraps {
+.worry-card, #worry-card, .scrap-box {
     width: 60vw;
     max-width: 30rem;
 }
@@ -156,7 +156,10 @@ button {
 }
 
 .scrap-box {
-    perspective: 500;
+    perspective: 500px;
+    margin: 0 auto;
+    width: 90vw;
+    max-width: 45rem;
 }
 
 .closing-message {
