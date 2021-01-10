@@ -85,8 +85,17 @@ const startShred = () => {
     '<', // Start when the above animation starts.
   );
 
-  // End the scene 1s after the card finishes moving.
-  tl.add(showClosing, '+=1');
+  tl.to(
+    document.querySelectorAll('.closing-message'),
+    {
+      opacity: '100%',
+      duration: 2,
+    },
+    '<5', // Start 3s after the above animation starts.
+  );
+
+  // End the scene after the card finishes moving.
+  tl.add(destroyShreds);
 };
 
 /**
@@ -117,9 +126,9 @@ const makeShreds = () => {
 const snowfall = (elm) => {
   // Send the shreds downward.
   gsap.to(elm, {
-    y: 300,
+    y: 200,
     ease: Linear.easeNone,
-    duration: R(6, 15),
+    duration: R(6, 12),
   });
   // Float the shreds around the X-axis.
   gsap.to(elm, {
@@ -147,30 +156,21 @@ function R(min, max) {
 }
 
 /*
- * Bring in closing message.
+ * Fade out the shreds.
  */
-const showClosing = () => {
+const destroyShreds = () => {
   let shreds = document.querySelectorAll('.snow');
   let tl = gsap.timeline();
 
   // Fade out and destroy the shreds.
   tl.to(shreds, {
     opacity: 0,
-    duration: 3,
+    duration: 2,
     onComplete: cleanup,
     onCompleteParams: [shreds],
   });
   tl.to(light, { backgroundColor: 'yellow' });
 
-  tl.to(
-    document.querySelectorAll('.closing-message'),
-    {
-      opacity: '100%',
-    },
-    '<', // Start when the above animation starts.
-  );
-
-  console.log('the end');
 };
 
 /**

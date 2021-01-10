@@ -1,5 +1,5 @@
 // Page panel nav.
-let form = document.querySelector('form');
+let step1 = document.querySelector('.step1');
 let step2 = document.querySelector('.step2');
 
 // Screen 1 -> Screen 2
@@ -13,6 +13,19 @@ document.querySelector('button').addEventListener('click', () => {
   );
 
   // @todo require a value before moving on
-  form.style.display = 'none';
+  step1.style.display = 'none';
   step2.style.display = 'inline-block';
+
+  gsap.timeline().fromTo(
+    '.point-down',
+    { y: -5 },
+    {
+      y: 5,
+      duration: 0.5,
+      repeat: 8,
+      yoyo: true,
+      ease: Quad.easeInOut,
+    },
+  );
+
 });

@@ -6,25 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="style.css" />
 
+    <!--CLARITY ICONS STYLE-->
+    <link rel="stylesheet" href="node_modules/@clr/icons/clr-icons.min.css">
+    <!--CLARITY ICONS API & CORE SHAPES SET-->
+    <script src="node_modules/@clr/icons/clr-icons-lite.min.js"></script>
+    <!--ICON SETS-->
+    <script src="node_modules/@clr/icons/shapes/core-shapes.min.js"></script>
+    <script src="node_modules/@clr/icons/shapes/essential-shapes.min.js"></script>
+
     <title>Worry Shredder prototypes | sarahg.dev</title>
 </head>
 
 <body>
     <header>sarahg.dev</header>
     <div class="container">
-        <section>
-            <h1><a href="javascript:window.location.href=window.location.href">Worry Shredder prototype</a></h1>
+        <section class="step1">
+            <h1>What are you worried about?</h1>
             <form>
-                <textarea placeholder="What are you worried about?"></textarea>
+                <textarea placeholder="Type your worry here"></textarea>
                 <button type="button">Next</button>
             </form>
         </section>
 
         <section class="step2">
-            <p>Drag your worry into the shredder.</p>
+            <h1>Drag your worry down to the shredder <clr-icon class="point-down" dir="down" shape="cursor-hand-click" size="64"></clr-icon></h1>
+
             <div class="wrap">
                 <div id="worry-card">
-                    <h3 class="badge">Worry</h3>
+                    <div class="badge">
+                        <clr-icon shape="drag-handle" size="28"></clr-icon>
+                        my worry
+                    </div>
                 </div>
 
                 <div class="shredder">
