@@ -1,10 +1,8 @@
 // Assign variables to DOM elements we'll use often.
 let worryCard = document.querySelector('#worry-card');
-let shredder = document.querySelector('.shredder');
-let scrapBox = document.querySelector('.scrap-box');
-let light = document.querySelector('.power');
-
-let shredderLeftPos = shredder.getBoundingClientRect().left;
+let shredder = document.querySelector('.shredder-top');
+let slot = document.querySelector('.slot');
+let scrapBox = document.querySelector('.window');
 
 /**
  * Initialize the animation.
@@ -12,8 +10,9 @@ let shredderLeftPos = shredder.getBoundingClientRect().left;
 const init = () => {
   gsap
     .timeline()
-    .from(shredder, { duration: 1, opacity: 0 })
+    //.from(shredder, { duration: 1, opacity: 0 })
     .add(enableDrag());
+
 };
 
 /*
@@ -26,7 +25,8 @@ const enableDrag = () => {
     type: 'y',
     lockAxis: true,
     onDrag: function (e) {
-      if (this.hitTest(shredder)) {
+      // 10px = height of the "slot"
+      if (this.hitTest(slot, 10)) {
         startShred();
         this.disable();
       }
@@ -49,11 +49,8 @@ const enableDrag = () => {
 const startShred = () => {
   let tl = gsap.timeline();
 
-  // Turn on the power light.
-  tl.to(light, { backgroundColor: 'green' });
-
   // Shake the shredder.
-  tl.fromTo(
+  /*tl.fromTo(
     shredder,
     { x: -2 },
     {
@@ -64,27 +61,27 @@ const startShred = () => {
       ease: Quad.easeInOut,
     },
     '<', // Start when the above animation starts.
-  );
+  );*/
 
   // Pull the card downwards.
   tl.to(
     worryCard,
     {
-      y: worryCard.offsetHeight + shredder.clientHeight,
+      y: 200,
       duration: 15,
     },
-    '<0.25', // Start .25s after the above animation starts.
+    //'<0.25', // Start .25s after the above animation starts.
   );
 
   tl.set(
     makeShreds,
     {
-      delay: 0.5,
+      delay: 0.2,
       onRepeat: makeShreds,
-      repeat: worryCard.offsetHeight / 20,
+      repeat: 5,
       repeatDelay: 1,
     },
-    '<', // Start when the above animation starts.
+    '<0.5', // Start .25s after the above animation starts.
   );
 
   tl.to(
@@ -102,18 +99,14 @@ const startShred = () => {
 
 /**
  * Create a bunch of divs to represent paper shreds.
- * @todo this could be more performant
  */
 const makeShreds = () => {
-  var total = 30;
+  var total = 20;
   for (i = 0; i < total; i++) {
     var shred = document.createElement('div');
     gsap.set(shred, {
       attr: { class: 'snow' },
-      x: R(
-        worryCard.getBoundingClientRect().left - shredderLeftPos,
-        worryCard.getBoundingClientRect().right - shredderLeftPos,
-      ),
+      x: R(10, 50),
       y: -10,
       z: R(-20, 20),
     });
@@ -128,7 +121,7 @@ const makeShreds = () => {
 const snowfall = (elm) => {
   // Send the shreds downward.
   gsap.to(elm, {
-    y: 200,
+    y: 110,
     ease: Linear.easeNone,
     duration: R(6, 12),
   });
@@ -171,7 +164,6 @@ const destroyShreds = () => {
     onComplete: cleanup,
     onCompleteParams: [shreds],
   });
-  tl.to(light, { backgroundColor: 'yellow' });
 };
 
 /**

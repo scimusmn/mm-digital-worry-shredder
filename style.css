@@ -27,34 +27,25 @@
 body {
     font-family: BourtonBase, Avenir, sans-serif;
     height: 100vh;
-    background-color: #00CCF2;
+    background-color: #FFFFFF;
 }
 
 body .container {
-    margin: 3% 5%;
+    padding: 2% 4%;
 }
 
 a.active {
     font-weight: 900;
 }
 
-header {
-    padding: .6em;
-    background-color: #444;
-    color: #FFF;
-    text-align: right;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
 h1 {
-    color: white;
+    color: black;
     font-size: 2.25rem;
     margin-bottom: 1em;
 }
 
 h1 a {
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
@@ -85,89 +76,100 @@ button {
     display: none;
 }
 
-.worry-card, #worry-card, .scrap-box {
-    width: 60vw;
-    max-width: 30rem;
-}
-
-.worry-card, #worry-card {
+#worry-card {
     margin: 0 auto 3em;
+    width: 200px;
     box-shadow: 0 2px 0 rgba(9, 30, 66, .25);
     border-radius: 3px;
+    border: 1px solid black;
+    position: relative;
+    z-index: 1001;
+    background: white;
 }
 
 .worry-card-user-text {
-    min-height: 4rem;
     background-color: #ffffff;
     white-space: pre-wrap;
-    font-size: 1.35rem;
+    font-size: 1rem;
     margin: 0 auto;
     padding: .5em .5em 1em;
 }
 
-.badge {
-    color: #FFF;
-    background-color: #ffb200;
-    font-size: 1rem;
-    padding: .2em 0;
-    font-weight: bold;
+.shredder-top, .shredder-bottom, .slot {
+    border: 1px solid black;
 }
 
-.wrap {
-    overflow: hidden;
-}
-
-.shredder {
-    height: 4em;
-    width: 90vw;
-    max-width: 45rem;
-    background-color: darkslateblue;
-    border-radius: .5rem;
+.shredder-top, .shredder-bottom {
+    height: 50px;
+    width: 300px;
     margin: 0 auto;
-    z-index: 999;
+    background: white;
     position: relative;
 }
 
-.power {
-    height: 1em;
-    width: 1em;
-    border-radius: 1em;
+.shredder-top {
+    border-radius: 10px 10px 0 0;
+    border-bottom: none;
+    z-index: 1;
+}
+
+.shredder-bottom {
+    border-radius: 0 0 10px 10px;
+    height: 200px;
+    z-index: 1100;
+    border-top: none;
+}
+
+.slot {
     position: relative;
-    background-color: goldenrod;
-    top: 35%;
-    left: 3%;
-    display: inline-block;
+    top: 38px;
+    width: 70%;
+    height: 10px;
+    margin: 0 auto;
+    border-bottom: none;
 }
 
-.power.off {
-    background-color: red;
-}
-
-.power.on {
-    background-color: green;
+.slot-bottom {
+    border-top: 1px solid black;
+    width: 70.5%;
+    position: relative;
+    top: -1px;
+    margin: 0 auto;
 }
 
 .snow {
     width: 8px;
     height: 8px;
     position: absolute;
-    background-color: white;
+    z-index: 800;
+    background-color: #f7f7f7;
+    border: .5px solid black;
     background-size: 100% 100%;
 }
 
-.scrap-box {
+.window {
     perspective: 500px;
-    margin: 0 auto;
-    width: 90vw;
-    max-width: 45rem;
+    height: 120px;
+    width: 60px;
+    border: 1px solid #333;
+    margin: 20px auto 0;
+    overflow: hidden;
 }
 
 .closing-message {
-    font-size: 2.5em;
-    font-weight: bold;
-    text-decoration: uppercase;
-    color: ghostwhite;
     text-align: center;
-    margin: 1.5em 0;
+    margin: 1.5em auto;
+    width: 300px;
     opacity: 0;
+}
+
+.closing-message a, .closing-message a:hover, .closing-message a:visited {
+    font-size: 1.25em;
+    color: black;
+    padding-bottom: .75em;
+    display: block;
+}
+
+footer {
+    margin-top: 3em;
 }

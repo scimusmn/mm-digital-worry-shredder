@@ -18,7 +18,6 @@
 </head>
 
 <body>
-    <header>sarahg.dev</header>
     <div class="container">
         <section class="step1">
             <h1>What are you worried about?</h1>
@@ -31,28 +30,38 @@
         <section class="step2">
             <h1>Drag your worry down to the shredder <clr-icon class="point-down" dir="down" shape="cursor-hand-click" size="64"></clr-icon></h1>
 
-            <div class="wrap">
+            <div class="wrap-top">
                 <div id="worry-card">
-                    <div class="badge">
-                        <clr-icon shape="drag-handle" size="28"></clr-icon>
-                        my worry
-                    </div>
+                    <clr-icon shape="drag-handle" size="28"></clr-icon>
                 </div>
-
-                <div class="shredder">
-                    <div class="power off"></div>
+                <div class="shredder-top">
+                    <div class="slot"></div>
+                </div>
+                <div class="shredder-bottom">
+                    <div class="slot-bottom"></div>
+                    <div class="window"></div>
                 </div>
             </div>
 
-            <div class="scrap-box"></div>
-            <div class="closing-message">The end 🥂</div>
+            <div class="wrap-bottom">
+                <div class="closing-message">
+                    <a href="#" onclick="location.reload()">Shred another worry</a>
+                    <a href="https://smm.org">
+                        Check out the mental health exhibit at 
+                        <span id="museum">SMM</span>
+                    </a>
+                </div>
+            </div>
         </section>
 
-
+        <footer>
+            <img src="assets/img/mm-logo.png" alt="Mental Health Matters logo" width="100">
+        </footer>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/Draggable.min.js"></script>
+    <script type="text/javascript" src="museums.json"></script>
     <script type="text/javascript" src="js/nav.js"></script>
     <script type="text/javascript" src="js/demo2.js"></script>
     <script type="text/javascript">
