@@ -1,6 +1,6 @@
 // Assign variables to DOM elements we'll use often.
 let worryCard = document.querySelector('#worry-card');
-let shredder = document.querySelector('.shredder-top');
+let shredder = document.querySelectorAll('.shredder-wrap img');
 let slot = document.querySelector('.slot');
 let scrapBox = document.querySelector('.window');
 
@@ -10,7 +10,6 @@ let scrapBox = document.querySelector('.window');
 const init = () => {
   gsap
     .timeline()
-    //.from(shredder, { duration: 1, opacity: 0 })
     .add(enableDrag());
 };
 
@@ -50,18 +49,17 @@ const startShred = () => {
   let tl = gsap.timeline();
 
   // Shake the shredder.
-  /*tl.fromTo(
+  tl.fromTo(
     shredder,
-    { x: -2 },
+    { x: -1 },
     {
-      x: 2,
+      x: 1,
       duration: 0.1,
       repeat: 40,
       yoyo: true,
       ease: Quad.easeInOut,
-    },
-    '<', // Start when the above animation starts.
-  );*/
+    }
+  );
 
   // Pull the card downwards.
   tl.to(
@@ -70,7 +68,7 @@ const startShred = () => {
       y: 360,
       duration: 10,
     },
-    //'<0.25', // Start .25s after the above animation starts.
+    '<0.25', // Start .25s after the above animation starts.
   );
 
   tl.set(
