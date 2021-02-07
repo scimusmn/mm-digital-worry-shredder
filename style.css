@@ -73,7 +73,7 @@ button {
     padding: .5em 1em;
 }
 
-.step2, .step3 {
+.step2 {
     display: none;
 }
 

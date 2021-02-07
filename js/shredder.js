@@ -1,4 +1,7 @@
-// Assign variables to DOM elements we'll use often.
+/**
+ * Worry Shredder animations.
+ */
+
 let worryCard = document.querySelector('#worry-card');
 let shredder = document.querySelectorAll('.shredder-wrap img');
 let slot = document.querySelector('.slot');
@@ -25,7 +28,14 @@ const enableDrag = () => {
     onDrag: function (e) {
       if (this.hitTest(slot, 5)) {
         startShred();
-        crankThat(); // https://www.youtube.com/watch?v=8UFIYGkROII
+
+        // https://www.youtube.com/watch?v=8UFIYGkROII
+        gsap.to('.crank', {
+          duration: 10,
+          rotation: 640,
+          ease: 'Power1.easeInOut',
+        });
+
         this.disable();
       }
     },
@@ -40,13 +50,6 @@ const enableDrag = () => {
     },
   });
 };
-
-/*
- * Spin the crank.
- */
-const crankThat = () => {
-  gsap.to('.crank', { duration: 10, rotation: 640, ease: "Power1.easeInOut" });
-}
 
 /*
  * Shred the worry card.

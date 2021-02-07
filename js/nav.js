@@ -1,3 +1,10 @@
+/**
+ * Worry Shredder UI/navigation.
+ * 
+ * Page transitions and other elements that
+ * don't directly interact with the shredding animation.
+ */
+
 // Page panel nav.
 let step1 = document.querySelector('.step1');
 let step2 = document.querySelector('.step2');
@@ -12,7 +19,7 @@ document.querySelector('button').addEventListener('click', () => {
     '<div class="worry-card-user-text">' + worry + '</div>',
   );
 
-  // @todo require a value before moving on
+  // @todo make this snazzier
   step1.style.display = 'none';
   step2.style.display = 'inline-block';
 
@@ -28,20 +35,3 @@ document.querySelector('button').addEventListener('click', () => {
     },
   );
 });
-
-let museumName = getQueryVariable('museum');
-if (museumName) {
-  document.getElementById('museum').innerHTML = decodeURI(museumName);
-}
-
-function getQueryVariable(variable) {
-  var query = window.location.search.substring(1);
-  var vars = query.split('&');
-  for (var i = 0; i < vars.length; i++) {
-    var pair = vars[i].split('=');
-    if (pair[0] == variable) {
-      return pair[1];
-    }
-  }
-  return false;
-}
