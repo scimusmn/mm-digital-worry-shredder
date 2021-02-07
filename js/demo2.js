@@ -24,7 +24,6 @@ const enableDrag = () => {
     //zindex: 800,
     lockAxis: true,
     onDrag: function (e) {
-      // 10px = height of the "slot"
       if (this.hitTest(slot, 5)) {
         startShred();
         this.disable();
