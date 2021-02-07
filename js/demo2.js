@@ -157,7 +157,7 @@ const destroyShreds = () => {
   // Fade out and destroy the shreds.
   tl.to(shreds, {
     opacity: 0,
-    duration: 2,
+    duration: 1.5,
     onComplete: cleanup,
     onCompleteParams: [shreds],
   });

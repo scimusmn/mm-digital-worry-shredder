@@ -40,7 +40,7 @@ a.active {
 
 h1 {
     color: black;
-    font-size: 2.25rem;
+    font-size: 2em;
     margin-bottom: 1em;
 }
 
@@ -63,6 +63,7 @@ p {
 textarea {
     padding: 1em;
     width: 80%;
+    max-width: 600px;
     font-size: 1.25rem;
 }
 
@@ -78,10 +79,13 @@ button {
 
 #worry-card {
     margin: 0 0 3em;
+    transition: all 0.5s ease;
+    color: #41403E;
+    letter-spacing: 1px;
+    box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
+    border-radius: 355px 15px 325px 15px/15px 325px 15px 355px;
     width: 200px;
-    box-shadow: 0 2px 0 rgba(9, 30, 66, .25);
-    border-radius: 3px;
-    border: 1px solid black;
+    border: solid 4px #41403E;
     position: relative;
     left: 120px;
     background: white;
@@ -118,19 +122,24 @@ button {
 }
 
 .snow {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     position: absolute;
-    z-index: 800;
     background-color: #f7f7f7;
-    border: .5px solid black;
-    background-size: 100% 100%;
+    border: 1px solid #41403E;
 }
 
 .shredder-bottom img {
     position: relative;
     z-index: 900;
 }
+
+img.crank {
+    position: relative;
+    top: -285px;
+    left: -230px;
+}
+
 .window {
     perspective: 500px;
     overflow: hidden;
@@ -143,10 +152,10 @@ button {
 }
 
 .closing-message {
-    text-align: center;
-    margin: 1.5em auto;
-    width: 300px;
+    margin: 4em 0 0;
     opacity: 0;
+    position: relative;
+    z-index: 1200;
 }
 
 .closing-message a, .closing-message a:hover, .closing-message a:visited {
@@ -158,4 +167,8 @@ button {
 
 footer {
     margin-top: 3em;
+}
+
+footer img {
+    margin-right: 1em
 }
