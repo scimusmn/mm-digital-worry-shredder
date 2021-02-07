@@ -12,7 +12,6 @@ const init = () => {
     .timeline()
     //.from(shredder, { duration: 1, opacity: 0 })
     .add(enableDrag());
-
 };
 
 /*
