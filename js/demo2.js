@@ -22,10 +22,11 @@ const enableDrag = () => {
   let lastY = 0;
   Draggable.create(worryCard, {
     type: 'y',
+    //zindex: 800,
     lockAxis: true,
     onDrag: function (e) {
       // 10px = height of the "slot"
-      if (this.hitTest(slot, 10)) {
+      if (this.hitTest(slot, 5)) {
         startShred();
         this.disable();
       }
@@ -66,8 +67,8 @@ const startShred = () => {
   tl.to(
     worryCard,
     {
-      y: 200,
-      duration: 15,
+      y: 360,
+      duration: 10,
     },
     //'<0.25', // Start .25s after the above animation starts.
   );

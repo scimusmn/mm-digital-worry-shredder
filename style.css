@@ -84,8 +84,8 @@ button {
     border: 1px solid black;
     position: relative;
     left: 120px;
-    z-index: 1001;
     background: white;
+    word-break: break-all;
 }
 
 .worry-card-user-text {
@@ -101,47 +101,20 @@ button {
     height: 600px;
 }
 
-.shredder-top, .shredder-bottom, .slot {
-    /*: 1px solid black;*/
-}
-
 .shredder-top {
     height: 215px;
-}
-
-.shredder-top, .shredder-bottom {
-    /* height: 50px;
-    
-    margin: 0 auto;
-    background: white;
-    position: relative; */
-}
-
-.shredder-top {
-    z-index: 1;
 }
 
 .shredder-bottom {
     position: relative;
     top: -5px;
-    z-index: 9999;
+    z-index: 1100;
 }
 
 .slot {
     position: relative;
-    top: 38px;
-    width: 70%;
+    top: -10px;
     height: 10px;
-    margin: 0 auto;
-    border-bottom: none;
-}
-
-.slot-bottom {
-    border-top: 1px solid black;
-    width: 70.5%;
-    position: relative;
-    top: -1px;
-    margin: 0 auto;
 }
 
 .snow {
@@ -156,10 +129,6 @@ button {
 
 .window {
     perspective: 500px;
-    height: 120px;
-    width: 60px;
-    /*border: 1px solid #333;*/
-    margin: 20px auto 0;
     overflow: hidden;
 }
 
