@@ -28,14 +28,6 @@ const enableDrag = () => {
     onDrag: function (e) {
       if (this.hitTest(slot, 5)) {
         startShred();
-
-        // https://www.youtube.com/watch?v=8UFIYGkROII
-        gsap.to('.crank', {
-          duration: 10,
-          rotation: 640,
-          ease: 'Power1.easeInOut',
-        });
-
         this.disable();
       }
     },
@@ -57,6 +49,16 @@ const enableDrag = () => {
 const startShred = () => {
   let tl = gsap.timeline();
 
+  audioObj = new Audio('assets/shred.mp3');
+  audioObj.play();
+
+  // https://www.youtube.com/watch?v=8UFIYGkROII
+  tl.to('.crank', {
+    duration: 10,
+    rotation: 640,
+    ease: 'Power1.easeInOut',
+  });
+
   // Shake the shredder.
   tl.fromTo(
     shredder,
@@ -67,7 +69,8 @@ const startShred = () => {
       repeat: 20,
       yoyo: true,
       ease: Quad.easeInOut,
-    }
+    },
+    '<', // Start at the same time as the above animation.
   );
 
   // Pull the card downwards.
