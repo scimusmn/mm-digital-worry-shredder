@@ -127,9 +127,19 @@ button {
     background-size: 100% 100%;
 }
 
+.shredder-bottom img {
+    position: relative;
+    z-index: 900;
+}
 .window {
     perspective: 500px;
     overflow: hidden;
+    width: 220px;
+    height: 160px;
+    position: relative;
+    top: -260px;
+    left: 110px;
+    z-index: 800;
 }
 
 .closing-message {

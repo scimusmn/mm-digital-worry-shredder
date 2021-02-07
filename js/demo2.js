@@ -51,11 +51,11 @@ const startShred = () => {
   // Shake the shredder.
   tl.fromTo(
     shredder,
-    { x: -1 },
+    { x: -0.75 },
     {
-      x: 1,
+      x: 0.75,
       duration: 0.1,
-      repeat: 40,
+      repeat: 20,
       yoyo: true,
       ease: Quad.easeInOut,
     }
@@ -104,7 +104,7 @@ const makeShreds = () => {
     var shred = document.createElement('div');
     gsap.set(shred, {
       attr: { class: 'snow' },
-      x: R(10, 50),
+      x: R(-10, 230),
       y: -10,
       z: R(-20, 20),
     });
@@ -119,7 +119,7 @@ const makeShreds = () => {
 const snowfall = (elm) => {
   // Send the shreds downward.
   gsap.to(elm, {
-    y: 110,
+    y: 200,
     ease: Linear.easeNone,
     duration: R(6, 12),
   });
