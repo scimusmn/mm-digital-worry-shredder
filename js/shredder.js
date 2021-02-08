@@ -50,6 +50,7 @@ const startShred = () => {
   let tl = gsap.timeline();
 
   audioObj = new Audio('assets/shred.mp3');
+  audioObj.volume = 0.2;
   audioObj.play();
 
   // https://www.youtube.com/watch?v=8UFIYGkROII
