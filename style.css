@@ -87,6 +87,7 @@ button {
 
 .step2 {
     display: none;
+    opacity: 0;
 }
 
 #worry-card {

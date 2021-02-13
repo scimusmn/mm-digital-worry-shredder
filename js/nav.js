@@ -5,10 +5,6 @@
  * don't directly interact with the shredding animation.
  */
 
-// Page panel nav.
-let step1 = document.querySelector('.step1');
-let step2 = document.querySelector('.step2');
-
 // Screen 1 -> Screen 2
 document.querySelector('button').addEventListener('click', () => {
   let worry = document.querySelector('textarea').value;
@@ -19,11 +15,12 @@ document.querySelector('button').addEventListener('click', () => {
     '<div class="worry-card-user-text">' + worry + '</div>',
   );
 
-  // @todo make this snazzier
-  step1.style.display = 'none';
-  step2.style.display = 'inline-block';
+  let tl = gsap.timeline();
+  tl.to('.step1', { display: 'none', opacity: 0, duration: .25 });
+  tl.to('.step2', { display: 'inline-block', opacity: "100%", duration: .5 });
 
-  gsap.timeline().fromTo(
+  // Animate the pointer icon.
+  tl.fromTo(
     '.point-down',
     { y: -5 },
     {
