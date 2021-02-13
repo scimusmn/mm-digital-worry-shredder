@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@clr/icons": "^5.0.1",
+    "textfit": "^2.4.0"
+  }
+}
