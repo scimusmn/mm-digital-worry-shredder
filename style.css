@@ -28,10 +28,18 @@ body {
     font-family: BourtonBase, Avenir, sans-serif;
     height: 100vh;
     background-color: #FFFFFF;
+    padding: 2%;
 }
 
 body .container {
-    padding: 2% 4%;
+    padding: 2%;
+}
+
+@media screen and (min-width: 600px) {
+    body .container {
+        max-width: 800px;
+        border: 3px solid black;
+    }
 }
 
 a.active {
@@ -73,12 +81,16 @@ button {
     padding: .5em 1em;
 }
 
+.wrap-top {
+    text-align: center;
+}
+
 .step2 {
     display: none;
 }
 
 #worry-card {
-    margin: 0 0 3em;
+    margin: 0 auto 3em;
     transition: all 0.5s ease;
     color: #41403E;
     letter-spacing: 1px;
@@ -86,10 +98,10 @@ button {
     border-radius: 355px 15px 325px 15px/15px 325px 15px 355px;
     width: 200px;
     border: solid 4px #41403E;
-    position: relative;
-    left: 120px;
     background: white;
     word-break: break-all;
+    text-align: left;
+    position: relative;
 }
 
 .worry-card-user-text {
@@ -129,26 +141,51 @@ button {
     border: 1px solid #41403E;
 }
 
-.shredder-bottom img {
+.shredder-top img, .shredder-bottom img {
     position: relative;
+    left: -20px;
+}
+
+.shredder-bottom img {
     z-index: 900;
 }
 
 img.crank {
-    position: relative;
-    top: -285px;
-    left: -230px;
+    position: absolute;
+    top: 25px;
+    left: 45%;
+}
+
+@media screen and (max-width: 600px) {
+    img.crank {
+        left: 42%;
+    }
 }
 
 .window {
     perspective: 500px;
     overflow: hidden;
     width: 220px;
-    height: 160px;
-    position: relative;
-    top: -260px;
-    left: 110px;
+    height: 165px;
+    position: absolute;
+    top: 130px;
     z-index: 800;
+}
+
+@media screen and (max-width: 599px) {
+    .window {
+        left: 25%;
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 799px) {
+    .window {
+        left: 32%;
+    }
+}
+@media screen and (min-width: 800px) {
+    .window {
+        left: 35%;
+    }
 }
 
 .closing-message {

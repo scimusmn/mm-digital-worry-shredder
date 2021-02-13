@@ -26,7 +26,7 @@ const enableDrag = () => {
     type: 'y',
     lockAxis: true,
     onDrag: function (e) {
-      if (this.hitTest(slot, 5)) {
+      if (this.hitTest(slot)) {
         startShred();
         this.disable();
       }
