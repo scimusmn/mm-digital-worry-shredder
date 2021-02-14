@@ -11,9 +11,7 @@ let scrapBox = document.querySelector('.window');
  * Initialize the animation.
  */
 const init = () => {
-  gsap
-    .timeline()
-    .add(enableDrag());
+  gsap.timeline().add(enableDrag());
 };
 
 /*
@@ -78,7 +76,7 @@ const startShred = () => {
   tl.to(
     worryCard,
     {
-      y: 385,
+      y: getDistance("worryCardPullDown"),
       duration: 9
     },
     '<0.25', // Start .25s after the above animation starts.
@@ -132,7 +130,7 @@ const makeShreds = () => {
 const snowfall = (elm) => {
   // Send the shreds downward.
   gsap.to(elm, {
-    y: 200,
+    y: getDistance("snowfallPullDown"),
     ease: Linear.easeNone,
     duration: R(6, 12),
   });
@@ -183,3 +181,26 @@ const destroyShreds = () => {
 const cleanup = (el) => {
   el.forEach((e) => e.remove());
 };
+
+/**
+ * Logic for device-specific modifications.
+ */
+const getDistance = (transition) => {
+
+  let distance = {};
+
+  if (window.innerWidth > 375) {
+    distance = {
+      worryCardPullDown: 385,
+      snowfallPullDown: 200,
+    };
+  }
+  else {
+      distance = {
+        worryCardPullDown: 340,
+        snowfallPullDown: 140,
+      };
+  }
+
+  return distance[transition];
+}
