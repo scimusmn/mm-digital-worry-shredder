@@ -78,7 +78,7 @@ const startShred = () => {
   tl.to(
     worryCard,
     {
-      y: 370,
+      y: 385,
       duration: 9
     },
     '<0.25', // Start .25s after the above animation starts.
