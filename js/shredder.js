@@ -26,7 +26,7 @@ const enableDrag = () => {
     onDrag: function (e) {
       if (this.hitTest(slot)) {
         startShred();
-        gsap.to(window, { delay: 1, scrollTo: 520, duration: 3 });
+        gsap.to(window, { delay: 3, scrollTo: {y:".window", offsetY: 100}, duration: 3 });
         this.disable();
       }
     },
