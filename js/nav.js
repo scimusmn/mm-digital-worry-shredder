@@ -33,6 +33,8 @@ document.querySelector('button').addEventListener('click', () => {
     duration: 0.5
   });
 
+  tl.to(window, { scrollTo: 0, duration: 0.25 }, '<');
+
   // Animate the pointer icon.
   tl.fromTo(
     '.point-down',
