@@ -98,17 +98,18 @@ button {
     box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
     border-radius: 355px 15px 325px 15px/15px 325px 15px 355px;
     width: 200px;
+    height: 105px;
     border: solid 4px #41403E;
     background: white;
     word-break: break-all;
     text-align: left;
     position: relative;
+    overflow: hidden;
 }
 
 .worry-card-user-text {
     background-color: #ffffff;
     white-space: pre-wrap;
-    font-size: 1rem;
     margin: 0 auto;
     padding: .5em .5em 1em;
 }
@@ -138,8 +139,9 @@ button {
     width: 7px;
     height: 7px;
     position: absolute;
-    background-color: #f7f7f7;
     border: 1px solid #41403E;
+    border-bottom: 2px solid #41403E;
+    border-left: 2px solid #41403E;
 }
 
 .shredder-top img, .shredder-bottom img {
@@ -178,11 +180,13 @@ img.crank {
         left: 25%;
     }
 }
+
 @media screen and (min-width: 600px) and (max-width: 799px) {
     .window {
         left: 32%;
     }
 }
+
 @media screen and (min-width: 800px) {
     .window {
         left: 35%;

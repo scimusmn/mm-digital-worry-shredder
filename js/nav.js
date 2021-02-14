@@ -7,15 +7,25 @@
 
 // Screen 1 -> Screen 2
 document.querySelector('button').addEventListener('click', () => {
+  document
+    .querySelector('#worry-card')
+    .insertAdjacentHTML(
+      'beforeend',
+      '<div class="worry-card-user-text">' +
+        document.querySelector('textarea').value +
+        '</div>',
+    );
 
-  document.querySelector('#worry-card').insertAdjacentHTML(
-    'beforeend',
-    '<div class="worry-card-user-text">' + document.querySelector('textarea').value + '</div>',
-  );
+  // https://github.com/STRML/textFit/issues/45
+  // textFit(document.querySelector('.worry-card-user-text'))
 
   let tl = gsap.timeline();
-  tl.to('.step1', { display: 'none', opacity: 0, duration: .25 });
-  tl.to('.step2', { display: 'inline-block', opacity: "100%", duration: .5 });
+  tl.to('.step1', { display: 'none', opacity: 0, duration: 0.25 });
+  tl.to('.step2', {
+    display: 'inline-block',
+    opacity: '100%',
+    duration: 0.5,
+  });
 
   // Animate the pointer icon.
   tl.fromTo(

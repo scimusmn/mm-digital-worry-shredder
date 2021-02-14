@@ -78,8 +78,8 @@ const startShred = () => {
   tl.to(
     worryCard,
     {
-      y: 360,
-      duration: 10,
+      y: 370,
+      duration: 9
     },
     '<0.25', // Start .25s after the above animation starts.
   );
@@ -112,7 +112,7 @@ const startShred = () => {
  * Create a bunch of divs to represent paper shreds.
  */
 const makeShreds = () => {
-  var total = 20;
+  var total = 18;
   for (i = 0; i < total; i++) {
     var shred = document.createElement('div');
     gsap.set(shred, {
