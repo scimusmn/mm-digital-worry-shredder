@@ -2,5 +2,11 @@
   "dependencies": {
     "@clr/icons": "^5.0.1",
     "textfit": "^2.4.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.14"
+  },
+  "scripts": {
+    "start": "browser-sync start --server --files \".\""
   }
 }
