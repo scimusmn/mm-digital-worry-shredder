@@ -90,6 +90,11 @@ button {
     opacity: 0;
 }
 
+.point-down {
+   margin-right: -64px;
+   float: left;
+}
+
 #worry-card {
     margin: 0 auto 3em;
     transition: all 0.5s ease;
