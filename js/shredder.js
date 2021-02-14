@@ -19,6 +19,19 @@ const init = () => {
  * Turn on the shredder when the card hits it.
  */
 const enableDrag = () => {
+  // Animate the pointer icon.
+  gsap.fromTo(
+    '.point-down',
+    { y: -5 },
+    {
+      y: 5,
+      duration: 0.5,
+      repeat: -1,
+      yoyo: true,
+      ease: Quad.easeInOut,
+    },
+  );
+
   let lastY = 0;
   Draggable.create(worryCard, {
     type: 'y',
@@ -26,7 +39,12 @@ const enableDrag = () => {
     onDrag: function (e) {
       if (this.hitTest(slot)) {
         startShred();
-        gsap.to(window, { delay: 3, scrollTo: {y:".window", offsetY: 100}, duration: 3 });
+        gsap.to(window, {
+          delay: 3,
+          scrollTo: { y: '.window', offsetY: 100 },
+          duration: 3,
+        });
+        gsap.killTweensOf(".point-down");
         this.disable();
       }
     },
@@ -199,7 +217,7 @@ const getDistance = (transition) => {
   // Small screens.
   else {
       distance = {
-        worryCardPullDown: 300,
+        worryCardPullDown: 305,
         snowfallPullDown: 120,
       };
   }

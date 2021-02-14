@@ -35,18 +35,6 @@ document.querySelector('button').addEventListener('click', () => {
 
   tl.to(window, { scrollTo: 0, duration: 0.25 }, '<');
 
-  // Animate the pointer icon.
-  tl.fromTo(
-    '.point-down',
-    { y: -5 },
-    {
-      y: 5,
-      duration: 0.5,
-      repeat: 8,
-      yoyo: true,
-      ease: Quad.easeInOut,
-    },
-  );
 });
 
 // Overly-simplistic text resizing.
