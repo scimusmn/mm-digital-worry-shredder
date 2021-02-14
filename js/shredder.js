@@ -199,7 +199,7 @@ const getDistance = (transition) => {
   // Small screens.
   else {
       distance = {
-        worryCardPullDown: 325,
+        worryCardPullDown: 300,
         snowfallPullDown: 120,
       };
   }
