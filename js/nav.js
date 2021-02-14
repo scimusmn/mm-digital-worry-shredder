@@ -17,7 +17,7 @@ document.querySelector('button').addEventListener('click', () => {
     );
 
   // https://github.com/STRML/textFit/issues/45
-  // textFit(document.querySelector('.worry-card-user-text'))
+  // textFit(document.querySelector('.worry-card-user-text'), {multiLine: true})
 
   let tl = gsap.timeline();
   tl.to('.step1', { display: 'none', opacity: 0, duration: 0.25 });
