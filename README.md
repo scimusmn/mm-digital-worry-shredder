@@ -6,5 +6,6 @@ Created in January 2021 by [Sarah German](https://sarahgerman.com).
 
 ## Local development
 
+0) Install project dependencies: `npm install`
 1) Install browser-sync: `npm install -g browser-sync`
 2) Start a the local dev server: `npm start`
