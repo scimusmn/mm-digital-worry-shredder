@@ -16,11 +16,7 @@ document.querySelector('button').addEventListener('click', () => {
       '<div class="worry-card-user-text">' +
         userText +
         '</div>',
-    );
-
-  // https://github.com/STRML/textFit/issues/45
-  // textFit(document.querySelector('.worry-card-user-text'), {multiLine: true})
-  // for now, see our custom fitText function below.
+  );
 
   let tl = gsap.timeline();
 
@@ -37,7 +33,11 @@ document.querySelector('button').addEventListener('click', () => {
 
 });
 
-// Overly-simplistic text resizing.
+/**
+ * Attempt to fit text to the container.
+ * Something like this would be better: https://github.com/STRML/textFit/
+ * But alas: https://github.com/STRML/textFit/issues/45
+ */
 const fitText = (userText) => {
   if (userText.length > 60) {
     document.querySelector('.worry-card-user-text').style.fontSize =

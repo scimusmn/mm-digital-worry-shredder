@@ -2,13 +2,12 @@
  * Worry Shredder animations.
  */
 
+const SMALL_WIDTH_SCREEN_SIZE = 375;
 let worryCard = document.querySelector('#worry-card');
-let shredder = document.querySelectorAll('.shredder-wrap img');
-let slot = document.querySelector('.slot');
-let scrapBox = document.querySelector('.window');
 
 /**
  * Initialize the animation.
+ * We call init() from index.html.
  */
 const init = () => {
   gsap.timeline().add(enableDrag());
@@ -32,19 +31,26 @@ const enableDrag = () => {
     },
   );
 
+  /*
+   * Allow vertical dragging on the worry card;
+   * disable this and stop the pointer once the card
+   * reaches the shredder.
+   */
   let lastY = 0;
   Draggable.create(worryCard, {
     type: 'y',
     lockAxis: true,
     onDrag: function (e) {
-      if (this.hitTest(slot)) {
+      if (this.hitTest('.slot')) {
         startShred();
+
         gsap.to(window, {
-          delay: 3,
+          delay: 2.5,
           scrollTo: { y: '.window', offsetY: 100 },
           duration: 3,
         });
-        gsap.killTweensOf(".point-down");
+
+        gsap.killTweensOf('.point-down');
         this.disable();
       }
     },
@@ -79,7 +85,7 @@ const startShred = () => {
 
   // Shake the shredder.
   tl.fromTo(
-    shredder,
+    '.shredder-wrap img',
     { x: -0.75 },
     {
       x: 0.75,
@@ -101,6 +107,7 @@ const startShred = () => {
     '<0.25', // Start .25s after the above animation starts.
   );
 
+  // Show falling paper shreds in the window.
   tl.set(
     makeShreds,
     {
@@ -112,6 +119,7 @@ const startShred = () => {
     '<0.5', // Start .25s after the above animation starts.
   );
 
+  // Fade in closing text.
   tl.to(
     document.querySelectorAll('.closing-message'),
     {
@@ -121,7 +129,7 @@ const startShred = () => {
     '<5', // Start 3s after the above animation starts.
   );
 
-  // End the scene after the card finishes moving.
+  // Clean up after the card finishes moving.
   tl.add(destroyShreds);
 };
 
@@ -138,7 +146,7 @@ const makeShreds = () => {
       y: -10,
       z: R(-20, 20),
     });
-    scrapBox.appendChild(shred);
+    document.querySelector('.window').appendChild(shred);
     snowfall(shred);
   }
 };
@@ -174,6 +182,7 @@ const snowfall = (elm) => {
   });
 };
 
+// Generate random-ish values.
 function R(min, max) {
   return min + Math.random() * (max - min);
 }
@@ -202,19 +211,19 @@ const cleanup = (el) => {
 };
 
 /**
- * Logic for device-specific modifications.
+ * Logic for screen-specific positioning.
  */
 const getDistance = (transition) => {
-
   let distance = {};
 
-  if (window.innerWidth > 375) {
+  // Medium/large screens.
+  if (window.innerWidth > SMALL_WIDTH_SCREEN_SIZE) {
     distance = {
       worryCardPullDown: 385,
       snowfallPullDown: 200,
     };
   }
-  // Small screens.
+  // Lil screens.
   else {
       distance = {
         worryCardPullDown: 305,
