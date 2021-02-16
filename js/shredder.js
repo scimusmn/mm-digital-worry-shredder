@@ -37,12 +37,14 @@ const enableDrag = () => {
    * reaches the shredder.
    */
   let lastY = 0;
-  Draggable.create(worryCard, {
+  Draggable.create(worryCard, {    
     type: 'y',
     lockAxis: true,
     onDrag: function (e) {
       if (this.hitTest('.slot')) {
         startShred();
+
+        this.disable();        
 
         gsap.to(window, {
           delay: 2.5,
@@ -51,7 +53,6 @@ const enableDrag = () => {
         });
 
         gsap.killTweensOf('.point-down');
-        this.disable();
       }
     },
     // Only allow downwards dragging.

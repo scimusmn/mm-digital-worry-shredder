@@ -97,7 +97,6 @@ button {
 
 #worry-card {
     margin: 0 auto 3em;
-    transition: all 0.5s ease;
     color: #41403E;
     letter-spacing: 1px;
     box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
@@ -145,8 +144,8 @@ button {
 
 .slot {
     position: relative;
-    top: -10px;
-    height: 10px;
+    top: -12px;
+    height: 20px;
 }
 
 .snow {
