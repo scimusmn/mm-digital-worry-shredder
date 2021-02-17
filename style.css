@@ -143,8 +143,6 @@ button {
 }
 
 .slot {
-    position: relative;
-    top: -10px;
     height: 20px;
 }
 
