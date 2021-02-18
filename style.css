@@ -130,6 +130,12 @@ button {
     background-color: #ffffff;
     margin: 8px auto 0;
     word-break: break-word;
+    font-size: 14px;
+}
+@media screen and (max-width: 376px) {
+    .worry-card-user-text {
+        font-size: 10px;
+    }
 }
 
 .shredder-top {
