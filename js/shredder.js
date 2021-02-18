@@ -226,10 +226,10 @@ const getDistance = (transition) => {
   }
   // Lil screens.
   else {
-      distance = {
-        worryCardPullDown: 305,
-        snowfallPullDown: 120,
-      };
+    distance = {
+      worryCardPullDown: 305,
+      snowfallPullDown: 120,
+    };
   }
 
   return distance[transition];
