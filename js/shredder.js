@@ -77,6 +77,8 @@ const startShred = () => {
   audioObj.volume = 0.2;
   audioObj.play();
 
+  worryCard.style.boxShadow = 'none';
+
   // https://www.youtube.com/watch?v=8UFIYGkROII
   tl.to('.crank', {
     duration: 10,
@@ -227,7 +229,7 @@ const getDistance = (transition) => {
   // Lil screens.
   else {
     distance = {
-      worryCardPullDown: 305,
+      worryCardPullDown: 300,
       snowfallPullDown: 120,
     };
   }
