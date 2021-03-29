@@ -4,6 +4,8 @@ A web interactive for *[Mental Health Matters](https://www.smm.org/exhibitrental
 
 Created in January 2021 by [Sarah German](https://sarahgerman.com).
 
+Hosted at [mentalhealthexhibit.org](http://mentalhealthexhibit.org/)
+
 ## Local development
 
 0) Install project dependencies: `npm install`
